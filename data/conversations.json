@@ -1,0 +1,551 @@
+{
+    "conversations":
+    [
+        {
+            "messages":
+            [
+                {
+                    "role": "guest",
+                    "content": "Hello, do you have parking available at the hotel?"
+                }
+            ]
+        },
+        {
+            "messages":
+            [
+                {
+                    "role": "guest",
+                    "content": "Hi, can I check in earlier than 3pm?"
+                },
+                {
+                    "role": "agent",
+                    "content": "Early check-in is subject to availability. What time would you like to arrive?"
+                },
+                {
+                    "role": "guest",
+                    "content": "Around 11am if possible."
+                },
+                {
+                    "role": "agent",
+                    "content": "I will make a note and do our best to have a room ready by 11am."
+                }
+            ]
+        },
+        {
+            "messages":
+            [
+                {
+                    "role": "guest",
+                    "content": "Do you provide airport shuttle service?"
+                },
+                {
+                    "role": "agent",
+                    "content": "Yes, we offer a paid shuttle service from the airport. Would you like me to arrange one for you?"
+                },
+                {
+                    "role": "guest",
+                    "content": "Yes, please. My flight lands at 14:30."
+                }
+            ]
+        },
+        {
+            "messages":
+            [
+                {
+                    "role": "guest",
+                    "content": "Good evening, could you recommend a good Italian restaurant nearby?"
+                },
+                {
+                    "role": "agent",
+                    "content": "Of course! La Trattoria is just a 5-minute walk from the hotel and is highly rated."
+                }
+            ]
+        },
+        {
+            "messages":
+            [
+                {
+                    "role": "guest",
+                    "content": "Hi, is the pool heated?"
+                }
+            ]
+        },
+        {
+            "messages":
+            [
+                {
+                    "role": "guest",
+                    "content": "Hello, I need an extra bed in my room for my child."
+                },
+                {
+                    "role": "agent",
+                    "content": "Certainly, may I have your room number please?"
+                },
+                {
+                    "role": "guest",
+                    "content": "Room 504."
+                },
+                {
+                    "role": "agent",
+                    "content": "Thank you, we will deliver an extra bed to room 504 shortly."
+                }
+            ]
+        },
+        {
+            "messages":
+            [
+                {
+                    "role": "guest",
+                    "content": "Can you help me book a taxi for tomorrow morning at 6am?"
+                },
+                {
+                    "role": "agent",
+                    "content": "Yes, I can book that for you. Where will you be heading?"
+                },
+                {
+                    "role": "guest",
+                    "content": "To the main train station."
+                }
+            ]
+        },
+        {
+            "messages":
+            [
+                {
+                    "role": "guest",
+                    "content": "Do you have vegetarian options in your restaurant?"
+                },
+                {
+                    "role": "agent",
+                    "content": "Yes, we offer several vegetarian dishes on our menu."
+                }
+            ]
+        },
+        {
+            "messages":
+            [
+                {
+                    "role": "guest",
+                    "content": "I forgot my toothbrush. Can you provide one?"
+                },
+                {
+                    "role": "agent",
+                    "content": "Of course, we’ll send a dental kit to your room right away."
+                }
+            ]
+        },
+        {
+            "messages":
+            [
+                {
+                    "role": "guest",
+                    "content": "Can you please wake me up at 7am tomorrow?"
+                },
+                {
+                    "role": "agent",
+                    "content": "Certainly, I will schedule a wake-up call for 7am."
+                },
+                {
+                    "role": "guest",
+                    "content": "Thank you!"
+                }
+            ]
+        },
+        {
+            "messages":
+            [
+                {
+                    "role": "guest",
+                    "content": "Hi, can you confirm if breakfast is included in my booking?"
+                },
+                {
+                    "role": "agent",
+                    "content": "May I have your name or booking number please?"
+                },
+                {
+                    "role": "guest",
+                    "content": "Sure, it's under Anna Müller, reservation code 45789."
+                },
+                {
+                    "role": "agent",
+                    "content": "Thank you. Yes, your booking includes complimentary breakfast served daily from 7am to 10am."
+                }
+            ]
+        },
+        {
+            "messages":
+            [
+                {
+                    "role": "guest",
+                    "content": "Can I bring my dog with me to the hotel?"
+                }
+            ]
+        },
+        {
+            "messages":
+            [
+                {
+                    "role": "guest",
+                    "content": "Do you have laundry service?"
+                },
+                {
+                    "role": "agent",
+                    "content": "Yes, we offer same-day laundry and dry-cleaning service. Would you like me to arrange a pickup from your room?"
+                },
+                {
+                    "role": "guest",
+                    "content": "Yes please, in the evening around 7."
+                },
+                {
+                    "role": "agent",
+                    "content": "Perfect, our staff will pick up your laundry at 7pm."
+                }
+            ]
+        },
+        {
+            "messages":
+            [
+                {
+                    "role": "guest",
+                    "content": "The Wi-Fi in my room seems very slow. Can you help?"
+                },
+                {
+                    "role": "agent",
+                    "content": "I’m sorry to hear that. Could you tell me your room number?"
+                },
+                {
+                    "role": "guest",
+                    "content": "Room 812."
+                },
+                {
+                    "role": "agent",
+                    "content": "Thank you. I will reset the router for your floor. Please try again in 5 minutes."
+                },
+                {
+                    "role": "guest",
+                    "content": "Okay, I’ll wait and try again. Thanks."
+                }
+            ]
+        },
+        {
+            "messages":
+            [
+                {
+                    "role": "guest",
+                    "content": "Hello, I’m arriving late tonight, around 1am. Will the reception still be open?"
+                },
+                {
+                    "role": "agent",
+                    "content": "Yes, our reception is open 24/7. We’ll be ready to welcome you whenever you arrive."
+                }
+            ]
+        },
+        {
+            "messages":
+            [
+                {
+                    "role": "guest",
+                    "content": "Hi, can you recommend some activities for kids nearby?"
+                },
+                {
+                    "role": "agent",
+                    "content": "Of course! There’s a children’s museum 10 minutes away, and a large playground in the city park."
+                },
+                {
+                    "role": "guest",
+                    "content": "That sounds nice. Do you also offer babysitting services?"
+                },
+                {
+                    "role": "agent",
+                    "content": "Yes, we can arrange babysitting with 24 hours notice. Would you like me to check availability for tomorrow?"
+                },
+                {
+                    "role": "guest",
+                    "content": "Yes, please for tomorrow evening."
+                },
+                {
+                    "role": "agent",
+                    "content": "Great, I’ll confirm and get back to you shortly."
+                }
+            ]
+        },
+        {
+            "messages":
+            [
+                {
+                    "role": "guest",
+                    "content": "Do you have gluten-free options at breakfast?"
+                },
+                {
+                    "role": "agent",
+                    "content": "Yes, we offer gluten-free bread and cereal. Please let us know at check-in so we can prepare accordingly."
+                }
+            ]
+        },
+        {
+            "messages":
+            [
+                {
+                    "role": "guest",
+                    "content": "Can you help me extend my stay by one night?"
+                },
+                {
+                    "role": "agent",
+                    "content": "Sure, may I know your check-out date and room number?"
+                },
+                {
+                    "role": "guest",
+                    "content": "I’m in room 305, and was supposed to check out on Sunday."
+                },
+                {
+                    "role": "agent",
+                    "content": "Thank you. Let me check availability for Sunday night."
+                },
+                {
+                    "role": "agent",
+                    "content": "Good news, your room is available for one more night. Would you like me to confirm the extension?"
+                },
+                {
+                    "role": "guest",
+                    "content": "Yes, please confirm. Thank you."
+                }
+            ]
+        },
+        {
+            "messages":
+            [
+                {
+                    "role": "guest",
+                    "content": "Do you offer late check-out?"
+                },
+                {
+                    "role": "agent",
+                    "content": "Yes, late check-out is available until 2pm for an additional fee. Would you like me to add that to your booking?"
+                },
+                {
+                    "role": "guest",
+                    "content": "Yes, that would be great."
+                }
+            ]
+        },
+        {
+            "messages":
+            [
+                {
+                    "role": "guest",
+                    "content": "Hi, I lost my room key. What should I do?"
+                },
+                {
+                    "role": "agent",
+                    "content": "No problem, please come to the front desk with your ID, and we’ll issue a new key."
+                },
+                {
+                    "role": "guest",
+                    "content": "Okay, I’ll come down now."
+                },
+                {
+                    "role": "agent",
+                    "content": "We’ll be waiting at the front desk to assist you."
+                }
+            ]
+        },
+        {
+            "messages":
+            [
+                {
+                    "role": "guest",
+                    "content": "Bonjour, est-ce que le petit déjeuner est inclus dans le prix de la chambre ?"
+                },
+                {
+                    "role": "agent",
+                    "content": "Oui, le petit déjeuner est inclus et servi de 7h à 10h."
+                }
+            ]
+        },
+        {
+            "messages":
+            [
+                {
+                    "role": "guest",
+                    "content": "Hola, ¿tienen servicio de transporte al aeropuerto?"
+                },
+                {
+                    "role": "agent",
+                    "content": "Sí, ofrecemos un servicio de transporte con costo adicional. ¿Quiere que lo reserve para usted?"
+                },
+                {
+                    "role": "guest",
+                    "content": "Sí, por favor. Mi vuelo sale a las 9 de la mañana."
+                }
+            ]
+        },
+        {
+            "messages":
+            [
+                {
+                    "role": "guest",
+                    "content": "Guten Tag, könnte ich morgen ein spätes Check-out bekommen?"
+                },
+                {
+                    "role": "agent",
+                    "content": "Ja, ein später Check-out bis 14 Uhr ist möglich gegen eine kleine Gebühr."
+                },
+                {
+                    "role": "guest",
+                    "content": "Perfekt, bitte für Zimmer 211 eintragen."
+                },
+                {
+                    "role": "agent",
+                    "content": "Sehr gerne, ich habe es notiert."
+                }
+            ]
+        },
+        {
+            "messages":
+            [
+                {
+                    "role": "guest",
+                    "content": "Bonsoir, j’ai besoin d’un taxi demain matin à 6h."
+                },
+                {
+                    "role": "agent",
+                    "content": "Pas de problème, je peux le réserver pour vous. Quelle est votre destination ?"
+                },
+                {
+                    "role": "guest",
+                    "content": "À la gare centrale, s’il vous plaît."
+                },
+                {
+                    "role": "agent",
+                    "content": "C’est noté, un taxi viendra vous chercher à 6h."
+                }
+            ]
+        },
+        {
+            "messages":
+            [
+                {
+                    "role": "guest",
+                    "content": "Hola, olvidé mi cepillo de dientes. ¿Podrían traerme uno?"
+                },
+                {
+                    "role": "agent",
+                    "content": "Claro que sí, en unos minutos le enviamos un kit dental a su habitación."
+                }
+            ]
+        },
+        {
+            "messages":
+            [
+                {
+                    "role": "guest",
+                    "content": "Hallo, ich reise mit einem Kind. Haben Sie ein Babybett?"
+                },
+                {
+                    "role": "agent",
+                    "content": "Ja, wir stellen gerne ein Babybett kostenlos zur Verfügung."
+                },
+                {
+                    "role": "guest",
+                    "content": "Super, bitte in Zimmer 318 vorbereiten."
+                },
+                {
+                    "role": "agent",
+                    "content": "Sehr gerne, ich organisiere das sofort."
+                }
+            ]
+        },
+        {
+            "messages":
+            [
+                {
+                    "role": "guest",
+                    "content": "Bonjour, la connexion Wi-Fi ne fonctionne pas dans ma chambre."
+                },
+                {
+                    "role": "agent",
+                    "content": "Je suis désolé. Pouvez-vous me donner votre numéro de chambre ?"
+                },
+                {
+                    "role": "guest",
+                    "content": "Chambre 405."
+                },
+                {
+                    "role": "agent",
+                    "content": "Merci, je vais réinitialiser le routeur. Réessayez dans quelques minutes."
+                },
+                {
+                    "role": "guest",
+                    "content": "D’accord, merci beaucoup."
+                }
+            ]
+        },
+        {
+            "messages":
+            [
+                {
+                    "role": "guest",
+                    "content": "Buenas tardes, ¿hay opciones vegetarianas en el restaurante del hotel?"
+                },
+                {
+                    "role": "agent",
+                    "content": "Sí, tenemos varios platos vegetarianos disponibles."
+                },
+                {
+                    "role": "guest",
+                    "content": "Perfecto, ¿necesito reservar mesa?"
+                },
+                {
+                    "role": "agent",
+                    "content": "Es recomendable. ¿Quiere que haga una reserva para esta noche?"
+                },
+                {
+                    "role": "guest",
+                    "content": "Sí, a las 20:00 por favor."
+                }
+            ]
+        },
+        {
+            "messages":
+            [
+                {
+                    "role": "guest",
+                    "content": "Hallo, kann ich meine Buchung um eine Nacht verlängern?"
+                },
+                {
+                    "role": "agent",
+                    "content": "Ja, gerne. Darf ich Ihr Abreisedatum wissen?"
+                },
+                {
+                    "role": "guest",
+                    "content": "Ich wollte eigentlich am Sonntag abreisen, aber jetzt Montag."
+                },
+                {
+                    "role": "agent",
+                    "content": "Perfekt, ich prüfe die Verfügbarkeit."
+                },
+                {
+                    "role": "agent",
+                    "content": "Ihr Zimmer ist für Montag verfügbar. Soll ich die Verlängerung bestätigen?"
+                },
+                {
+                    "role": "guest",
+                    "content": "Ja, bitte bestätigen."
+                }
+            ]
+        },
+        {
+            "messages":
+            [
+                {
+                    "role": "guest",
+                    "content": "Hola, ¿a qué hora es el check-in?"
+                },
+                {
+                    "role": "agent",
+                    "content": "El check-in es a partir de las 15:00."
+                }
+            ]
+        }
+    ]
+}
