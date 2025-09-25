@@ -1,0 +1,105 @@
+{
+  "info": {
+    "name": "Helia Agents Message Topics API",
+    "description": "Collection for the Message Topics Coding Challenge API",
+    "version": "1.0.0",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8000",
+      "type": "string"
+    },
+    {
+      "key": "topicId",
+      "value": "example_topic",
+      "type": "string",
+      "description": "Topic ID to search for conversations"
+    }
+  ],
+  "item": [
+    {
+      "name": "Health Check",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/health",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "health"
+          ]
+        },
+        "description": "Health check endpoint to verify API status"
+      },
+      "response": []
+    },
+    {
+      "name": "Get All Conversations",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/conversations",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "conversations"
+          ]
+        },
+        "description": "Get all conversations from the system"
+      },
+      "response": []
+    },
+    {
+      "name": "Get Hot Topics",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/analytics/hot-topics?number_of_topics=5",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "analytics",
+            "hot-topics"
+          ],
+          "query": [
+            {
+              "key": "number_of_topics",
+              "value": "5",
+              "description": "Number of hot topics to return (default: 5, minimum: 1)"
+            }
+          ]
+        },
+        "description": "Analyze conversations/messages and return the n hottest topics along with related conversations"
+      },
+      "response": []
+    },
+    {
+      "name": "Get Conversations for Topic",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/analytics/topic/{{topicId}}",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "analytics",
+            "topic",
+            "{{topicId}}"
+          ]
+        },
+        "description": "Get all conversations that refer to a specific topic"
+      },
+      "response": []
+    }
+  ]
+}
