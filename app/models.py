@@ -28,7 +28,7 @@ TopicName: TypeAlias = str
 
 
 class MessageRole(Enum):
-    USER = "user"
+    GUEST = "guest"
     AGENT = "agent"
 class Message(BaseModel):
     role: MessageRole
