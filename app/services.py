@@ -29,7 +29,8 @@ class TopicService:
         self.topic_repository.add_topic_for_conversation(conversation_id, topic_id)
         
 
-    def get_conversations_by_topic(self, topic_id: TopicId) -> list[Conversation]:
+    def get_conversations_by_topic(self, topic_id: str) -> list[Conversation]:
+        self._validate_topic_exists(topic_id)
         conversation_ids = self.topic_repository.get_conversations_by_topic(topic_id)
         return self.conversation_repository.get_many(conversation_ids)
 
@@ -37,3 +38,8 @@ class TopicService:
         hot_topics = self.topic_repository.get_n_hottest_topics(n)
         hot_topics_break_ties = sorted(hot_topics)[:n]
         return {topic_id: self.get_conversations_by_topic(topic_id) for topic_id in hot_topics_break_ties}
+    
+    def _validate_topic_exists(self, topic_id: TopicId) -> None:
+        allowed_topics = self.topic_repository.get_all_topics()
+        if topic_id not in [topic.id for topic in allowed_topics]:
+            raise ValueError(f"Topic {topic_id} does not exist.")

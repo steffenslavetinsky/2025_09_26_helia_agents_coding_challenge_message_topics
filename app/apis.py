@@ -14,6 +14,10 @@ class ConversationRepositoryAPI(ABC):
     def get_by_id(self, conversation_id) -> Conversation:
         pass
 
+    @abstractmethod
+    def add(self, conversation: Conversation) -> None:
+        pass
+
 class TopicRepositoryAPI(ABC):
     @abstractmethod
     def get_all_topics(self) -> list[Topic]:
@@ -29,6 +33,10 @@ class TopicRepositoryAPI(ABC):
 
     @abstractmethod
     def get_n_hottest_topics(self, n: int) -> list[TopicId]:
+        pass
+
+    @abstractmethod
+    def initialize_allowed_topics(self, topics: list[Topic]) -> None:
         pass
 
 class TopicLabelerAPI(ABC):

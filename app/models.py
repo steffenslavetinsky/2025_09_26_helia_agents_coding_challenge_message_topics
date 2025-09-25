@@ -40,7 +40,7 @@ class Conversation(BaseModel):
 
 class Topic(BaseModel):
     id: TopicId
-    name: TopicName
+    description: TopicName
 
 class AllowedTopics(BaseModel):
     topics: list[Topic]
