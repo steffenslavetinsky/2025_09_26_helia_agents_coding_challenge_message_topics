@@ -14,11 +14,11 @@ class MockTopicLabeler(TopicLabelerAPI):
         self.topic_mapping = topic_mapping or {}
         self.default_topic = "booking_management"
 
-    def label_conversation(self, conversation: Conversation, allowed_topics: List[Topic]) -> TopicId:
+    def label_conversation(self, conversation: Conversation, allowed_topics: List[Topic]) -> List[TopicId]:
         # Return mapped topic for this conversation, or default
         if conversation.id in self.topic_mapping:
-            return self.topic_mapping[conversation.id]
-        return self.default_topic
+            return [self.topic_mapping[conversation.id]]
+        return [self.default_topic]
 
     def set_topic_for_conversation(self, conversation_id: str, topic_id: str):
         """Helper to set topic mapping during tests"""

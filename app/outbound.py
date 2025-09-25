@@ -90,11 +90,11 @@ class InMemoryTopicRepository(TopicRepositoryAPI):
     def get_all_topics(self) -> List[Topic]:
         return [self._from_db_topic(topic) for topic in self._topics.values()]
 
-    def add_topic_for_conversation(self, conversation_id: ConversationId, topic_id: TopicId) -> None:
-        if topic_id not in self._conversation_topics[conversation_id]:
-            self._conversation_topics[conversation_id].append(topic_id)
-        if conversation_id not in self._topic_conversations[topic_id]:
-            self._topic_conversations[topic_id].append(conversation_id)
+    def add_topic_for_conversation(self, conversation_id: ConversationId, topic_ids: list[TopicId]) -> None:
+        self._conversation_topics[conversation_id] = topic_ids
+        for topic_id in topic_ids:
+            if conversation_id not in self._topic_conversations[topic_id]:
+                self._topic_conversations[topic_id].append(conversation_id)
 
     def get_conversations_by_topic(self, topic_id: TopicId) -> List[ConversationId]:
         return self._topic_conversations[topic_id].copy()
@@ -122,7 +122,7 @@ class OpenAITopicLabeler(TopicLabelerAPI):
     def __init__(self, api_key: Optional[str] = None):
         self.client = OpenAI(api_key=api_key or os.getenv("OPENAI_API_KEY"))
 
-    def label_conversation(self, conversation: Conversation, allowed_topics: List[Topic]) -> TopicId:
+    def label_conversation(self, conversation: Conversation, allowed_topics: List[Topic]) -> List[TopicId]:
         if not allowed_topics:
             raise ValueError("No allowed topics provided")
 
@@ -169,13 +169,9 @@ class OpenAITopicLabeler(TopicLabelerAPI):
         )
 
 
-    def _validate_and_get_primary_topic(self, topics: List[str], allowed_topics: List[Topic]) -> TopicId:
+    def _validate_and_get_primary_topic(self, topics: List[str], allowed_topics: List[Topic]) -> List[TopicId]:
         allowed_ids = {topic.id for topic in allowed_topics}
 
-        # Find first valid topic from the list
-        for topic in topics:
-            if topic in allowed_ids:
-                return topic
+        validated_topics = [topic for topic in topics if topic in allowed_ids]
 
-        # Fallback to first allowed topic if no valid topics found
-        return allowed_topics[0].id if allowed_topics else ""
+        return validated_topics

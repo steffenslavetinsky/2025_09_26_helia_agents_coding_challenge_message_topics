@@ -1,6 +1,7 @@
 
 from abc import ABC, abstractmethod
 from app.models import Conversation, TopicId, Topic, ConversationId
+from typing import List
 class ConversationRepositoryAPI(ABC):
     @abstractmethod
     def get_all_conversations(self) -> list[Conversation]:
@@ -24,7 +25,7 @@ class TopicRepositoryAPI(ABC):
         pass
 
     @abstractmethod
-    def add_topic_for_conversation(self, conversation_id: ConversationId, topic_id: TopicId) -> None:
+    def add_topic_for_conversation(self, conversation_id: ConversationId, topic_ids: list[TopicId]) -> None:
         pass
 
     @abstractmethod
@@ -41,5 +42,5 @@ class TopicRepositoryAPI(ABC):
 
 class TopicLabelerAPI(ABC):
     @abstractmethod
-    def label_conversation(self, conversation, allowed_topics) -> TopicId:
+    def label_conversation(self, conversation, allowed_topics) -> List[TopicId]:
         pass

@@ -25,8 +25,8 @@ class TopicService:
     def add_topic_for_conversation(self, conversation_id: ConversationId) -> None:
         conversation = self.conversation_repository.get_by_id(conversation_id)
         allowed_topics = self.topic_repository.get_all_topics()
-        topic_id = self.topic_labeler.label_conversation(conversation, allowed_topics)
-        self.topic_repository.add_topic_for_conversation(conversation_id, topic_id)
+        topic_ids = self.topic_labeler.label_conversation(conversation, allowed_topics)
+        self.topic_repository.add_topic_for_conversation(conversation_id, topic_ids)
         
 
     def get_conversations_by_topic(self, topic_id: str) -> list[Conversation]:
