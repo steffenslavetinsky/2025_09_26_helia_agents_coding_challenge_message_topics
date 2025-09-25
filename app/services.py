@@ -1,7 +1,7 @@
 
 
 from app.apis import ConversationRepositoryAPI, TopicRepositoryAPI, TopicLabelerAPI
-from app.models import Conversation, TopicId, Topic, ConversationId
+from app.models import Conversation, TopicId, ConversationId
 
 
 
