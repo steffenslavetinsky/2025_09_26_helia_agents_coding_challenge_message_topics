@@ -1,7 +1,19 @@
 from services import ConversationService, TopicService
 from outbound import InMemoryConversationRepository, InMemoryTopicRepository, OpenAITopicLabeler
 import json
+from pydantic import BaseSettings
 from app.models import Conversation, Message, Topic
+
+
+class Settings(BaseSettings):
+    environment: str = "development"
+
+    class Config:
+        env_file = ".env"
+
+
+settings = Settings()
+
 
 class UUID:
     @staticmethod
@@ -36,17 +48,22 @@ class ServiceFactory:
         self.conversation_repository = InMemoryConversationRepository()
         self.topic_repository = InMemoryTopicRepository()
         self.topic_labeler = OpenAITopicLabeler()
-        self._read_conversation_data_from_disk_to_repository(self.conversation_repository)
         self.conversation_service = ConversationService(self.conversation_repository)
         self.topic_service = TopicService(self.topic_repository, self.conversation_repository, self.topic_labeler)
-        self._initialize_allowed_topics(self.topic_repository)
-        self._initialize_topics(self.conversation_service, self.topic_service)
+
+        if settings.environment == 'development':
+            self._local_initialize()
 
     def create_conversation_service(self) -> ConversationService:
         return self.conversation_service
 
     def create_topic_service(self) -> TopicService:
         return self.topic_service
+    
+    def _local_initialize(self) -> None:
+        self._read_conversation_data_from_disk_to_repository(self.conversation_repository)
+        self._initialize_allowed_topics(self.topic_repository)
+        self._initialize_topics(self.conversation_service, self.topic_service)
     
     def _read_conversation_data_from_disk_to_repository(self, conversation_repository: InMemoryConversationRepository) -> None:
 

@@ -5,9 +5,9 @@ from pydantic import Field
 from service_factory import ServiceFactory
 
 app = FastAPI()
-
-conversation_service = ServiceFactory.create_conversation_service()
-topic_service = ServiceFactory.create_topic_service()
+service_factory = ServiceFactory()
+conversation_service = service_factory.create_conversation_service()
+topic_service = service_factory.create_topic_service()
 
 @app.get(
     "/analytics/hot-topics",
