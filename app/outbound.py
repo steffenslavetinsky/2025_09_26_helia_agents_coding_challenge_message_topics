@@ -10,12 +10,12 @@ from app.topic_labeler_prompt import TOPIC_LABELING_PROMPT
 
 
 class DBConversation(BaseModel):
-    _id: ConversationId
-    messages: List[Dict]
+    id: str
+    messages: List["DBMessage"]
 
 
 class DBTopic(BaseModel):
-    _id: TopicId
+    id: str
     description: str
 
 
@@ -24,35 +24,30 @@ class DBMessage(BaseModel):
     content: str
 
 
-def _conversation_convert_to_db(self) -> Dict:
+def _conversation_to_db(conversation: Conversation) -> DBConversation:
     return DBConversation(
-        _id=self.id,
-        messages=[msg.convert_to_db() for msg in self.messages]
-    ).model_dump()
+        id=conversation.id,
+        messages=[_message_to_db(msg) for msg in conversation.messages]
+    )
 
 
-def _topic_convert_to_db(self) -> Dict:
+def _topic_to_db(topic: Topic) -> DBTopic:
     return DBTopic(
-        _id=self.id,
-        description=self.description
-    ).model_dump()
+        id=topic.id,
+        description=topic.description
+    )
 
 
-def _message_convert_to_db(self) -> Dict:
+def _message_to_db(message: Message) -> DBMessage:
     return DBMessage(
-        role=self.role.value,
-        content=self.content
-    ).model_dump()
-
-
-Conversation.convert_to_db = _conversation_convert_to_db
-Topic.convert_to_db = _topic_convert_to_db
-Message.convert_to_db = _message_convert_to_db
+        role=message.role.value,
+        content=message.content
+    )
 
 
 class InMemoryConversationRepository(ConversationRepositoryAPI):
     def __init__(self):
-        self._conversations: Dict[ConversationId, Dict] = {}
+        self._conversations: Dict[ConversationId, DBConversation] = {}
 
     def get_all_conversations(self) -> List[Conversation]:
         return [self._from_db_conversation(conv) for conv in self._conversations.values()]
@@ -70,25 +65,25 @@ class InMemoryConversationRepository(ConversationRepositoryAPI):
         return None
 
     def add(self, conversation: Conversation) -> None:
-        self._conversations[conversation.id] = conversation.convert_to_db()
+        self._conversations[conversation.id] = _conversation_to_db(conversation)
 
-    def _from_db_conversation(self, db_conv: Dict) -> Conversation:
+    def _from_db_conversation(self, db_conv: DBConversation) -> Conversation:
         messages = [
             Message(
-                role=MessageRole(msg['role']),
-                content=msg['content']
+                role=MessageRole(msg.role),
+                content=msg.content
             )
-            for msg in db_conv['messages']
+            for msg in db_conv.messages
         ]
         return Conversation(
-            id=db_conv['_id'],
+            id=db_conv.id,
             messages=messages
         )
 
 
 class InMemoryTopicRepository(TopicRepositoryAPI):
     def __init__(self):
-        self._topics: Dict[TopicId, Dict] = {}
+        self._topics: Dict[TopicId, DBTopic] = {}
         self._conversation_topics: Dict[ConversationId, List[TopicId]] = defaultdict(list)
         self._topic_conversations: Dict[TopicId, List[ConversationId]] = defaultdict(list)
 
@@ -114,12 +109,12 @@ class InMemoryTopicRepository(TopicRepositoryAPI):
 
     def initialize_allowed_topics(self, topics: List[Topic]) -> None:
         for topic in topics:
-            self._topics[topic.id] = topic.convert_to_db()
+            self._topics[topic.id] = _topic_to_db(topic)
 
-    def _from_db_topic(self, db_topic: Dict) -> Topic:
+    def _from_db_topic(self, db_topic: DBTopic) -> Topic:
         return Topic(
-            id=db_topic['_id'],
-            description=db_topic['description']
+            id=db_topic.id,
+            description=db_topic.description
         )
 
 
@@ -162,7 +157,7 @@ class OpenAITopicLabeler(TopicLabelerAPI):
     def _format_conversation(self, conversation: Conversation) -> str:
         formatted = []
         for msg in conversation.messages:
-            role = "Customer" if msg.role == MessageRole.USER else "Agent"
+            role = "Customer" if msg.role == MessageRole.GUEST else "Agent"
             formatted.append(f"{role}: {msg.content}")
         return "\n".join(formatted)
 
