@@ -1,7 +1,7 @@
-from services import ConversationService, TopicService
-from outbound import InMemoryConversationRepository, InMemoryTopicRepository, OpenAITopicLabeler
+from app.services import ConversationService, TopicService
+from app.outbound import InMemoryConversationRepository, InMemoryTopicRepository, OpenAITopicLabeler
 import json
-from pydantic import BaseSettings
+from pydantic_settings import BaseSettings
 from app.models import Conversation, Message, Topic
 
 
@@ -69,7 +69,7 @@ class ServiceFactory:
 
         with open('data/conversations.json', 'r') as f:
             conversations_data = json.load(f)
-            for conversation_dict in conversations_data:
+            for conversation_dict in conversations_data["conversations"]:
                 conversation = Conversation(id=UUID.generate(), messages=[Message(**msg) for msg in conversation_dict['messages']])
                 conversation_repository.add(conversation)
 
